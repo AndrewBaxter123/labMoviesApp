@@ -1,5 +1,7 @@
 import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
+import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import WriteReview from "../components/cardIcons/writeReview";
 
 const FavouriteMoviesPage = (props) => {
   const toDo = () => true;
@@ -10,7 +12,14 @@ const FavouriteMoviesPage = (props) => {
     <PageTemplate
       title="Favourite Movies"
       movies={movies}
-      selectFavourite={toDo}
+      action={(movie) => {
+        return (
+          <>
+            <RemoveFromFavourites movie={movie} />
+            <WriteReview movie={movie} />
+          </>
+        );
+      }}
     />
   );
 };
