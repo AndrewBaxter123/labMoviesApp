@@ -7,9 +7,8 @@ import Box from "@mui/material/Box";
 import { useForm, Controller } from "react-hook-form";
 import { MoviesContext } from "../../contexts/moviesContext";
 import { useNavigate } from "react-router-dom";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
 import styles from "./styles";
+import ratings from "./ratingCategories";
 
 const ReviewForm = ({ movie }) => {
   const defaultValues = {
@@ -27,24 +26,16 @@ const ReviewForm = ({ movie }) => {
   const navigate = useNavigate();
   const context = useContext(MoviesContext);
   const [rating, setRating] = useState(3);
-  const [open, setOpen] = React.useState(false);  //NEW
 
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
   };
 
-  const handleSnackClose = (event) => {
-    setOpen(false);
-    navigate("/movies/favourites");
-  };
-
   const onSubmit = (review) => {
     review.movieId = movie.id;
     review.rating = rating;
     // console.log(review);
-    context.addReview(movie, review);
-    setOpen(true); // NEW
   };
 
   return (
@@ -52,22 +43,6 @@ const ReviewForm = ({ movie }) => {
       <Typography component="h2" variant="h3">
         Write a review
       </Typography>
-      <Snackbar
-        sx={styles.snack}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={open}
-        onClose={handleSnackClose}
-      >
-        <Alert
-          severity="success"
-          variant="filled"
-          onClose={handleSnackClose}
-        >
-          <Typography variant="h4">
-            Thank you for submitting a review
-          </Typography>
-        </Alert>
-      </Snackbar>
       <form sx={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
         <Controller
           name="author"
@@ -135,7 +110,7 @@ const ReviewForm = ({ movie }) => {
               onChange={handleRatingChange}
               helperText="Don't forget your rating"
             >
-              {rating.map((option) => (
+              {ratings.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
