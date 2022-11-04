@@ -9,6 +9,8 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 
+
+
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -18,10 +20,10 @@ const root = {
     margin: 0,
 };
 const chip = { margin: 0.5 };
+
 const ActorDetails = ({ actor }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  
   return (
     <>
       <Typography variant="h5" component="h3">
@@ -29,22 +31,46 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
       </Typography>
 
       <Typography variant="h6" component="p">
-        {actor?.biography}
+        {actor.biography}
       </Typography>
 
       <Paper 
         component="ul" 
         sx={root}
       >
+        <li>
+          <Chip label="Genres" sx={chip} color="primary" />
+        </li>
+        {actor.genres.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
       </Paper>
       <Paper component="ul" sx={root}>
+        <Chip icon={<AccessTimeIcon />} label={`${actor.runtime} min.`} />
+        <Chip
+          icon={<MonetizationIcon />}
+          label={`${actor.revenue.toLocaleString()}`}
+        />
+        <Chip
+          icon={<StarRate />}
+          label={`${actor.vote_average} (${actor.vote_count}`}
+        />
+        <Chip label={`Released: ${actor.release_date}`} />
       </Paper>
       <Paper 
         component="ul" 
         sx={root}
       >
-        
-        
+        <li>
+          <Chip label="Production Countries" sx={chip} color="primary" />
+        </li>
+        {actor.name.map((c) => (
+          <li key={c.name}>
+            <Chip label={c.name} sx={chip} />
+          </li>
+        ))}
       </Paper>
       <Fab
         color="secondary"
@@ -65,4 +91,4 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
   );
 };
 
-export default  ActorDetails;
+export default  ActorDetails ;

@@ -2,7 +2,7 @@ import React from "react";
 import Actor from "../actorCard";
 import Grid from "@mui/material/Grid";
 
-debugger;
+
 const ActorList = ( {actors, action }) => {
 
   let actorCards = actors.map((a) => (
