@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
-import MovieList from "../movieList";
+import MovieList from "../movieList/";
 import Grid from "@mui/material/Grid";
 
-function MovieListPageTemplate({ movies, title, action }) {  const [nameFilter, setNameFilter] = useState("");
+function MovieListPageTemplate({ movies, title, action }) {
+  const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genreId = Number(genreFilter);
 
