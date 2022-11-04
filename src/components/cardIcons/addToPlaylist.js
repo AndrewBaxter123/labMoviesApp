@@ -8,7 +8,7 @@ const AddToPlaylist = ({ movie }) => {
 
   const handleAddWatchlist = (e) => {
     e.preventDefault();
-    context.addWatchlist(movie);
+    context.addToWatchList(movie);
   };
   return (
     <IconButton aria-label="add to favorites" onClick={handleAddWatchlist}>
