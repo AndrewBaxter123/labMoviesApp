@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/templateActorListPage";
+
 import { getActors } from "../api/tmdb-api";
-import Spinner from "../components/spinner";
-import {useQuery} from 'react-query';
 
-const ActorsPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('upcoming', getActors)
- 
+const HomePage = (props) => {
+  const [actors, setActors] = useState([]);
 
-  if (isLoading) {
-    return <Spinner />
-  }
-
-  if (isError) {
-    return <h1>{error.message}</h1>
-  }  
-  const Actors = data.results;
+  useEffect(() => {
+    getActors().then(a => {
+        console.log(a)
+      setActors(a);
+    });
+  }, []);
 
   return (
     <PageTemplate
       title="Actors"
-      actors={Actors}
-    
+      actors={actors}
     />
-    
   );
 };
-export default ActorsPage ;
+export default HomePage;
