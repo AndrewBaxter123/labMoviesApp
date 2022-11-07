@@ -1,5 +1,5 @@
 import React from "react";  // useState/useEffect redundant
-import ActorHeader from "../headerActor";
+import ActorHeader from "../headerActorList";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -21,11 +21,11 @@ const TemplateActorPage = ({ actor, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters 
+  const images = data.profiles
 
   return (
     <>
-      <ActorHeader actor={actor} />
+      <ActorHeader title={actor.name} />
 
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>
