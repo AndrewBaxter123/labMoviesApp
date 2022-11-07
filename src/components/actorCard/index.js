@@ -7,9 +7,6 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
-import StarRateIcon from "@mui/icons-material/StarRate";
-import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
@@ -60,25 +57,11 @@ export default function ActorCard(props) {
         }
       />
       <CardContent>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <PermIdentityIcon fontSize="small" />
-              
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {actor.birthday}
-            </Typography>
-          </Grid>
-        </Grid>
         </CardContent>
       <CardActions disableSpacing>
       <Link to={`/actors/${actor.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info...
+          <Button variant="outlined" size="large" color="primary">
+            More Information...
           </Button>
         </Link>
       </CardActions>

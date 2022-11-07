@@ -7,6 +7,9 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import PlaceTwoToneIcon from '@mui/icons-material/PlaceTwoTone';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import FemaleIcon from '@mui/icons-material/Female';
+import MaleIcon from '@mui/icons-material/Male';
 
 
 const root = {
@@ -19,33 +22,63 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
+
+
 const ActorDetails = ({ actor }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  return (
-    <>
-      <Typography variant="h5" component="h3">
-        Overview
-      </Typography>
-      <Typography variant="h6" component="p">
-      <PlaceTwoToneIcon fontSize="small" />
-        {actor.place_of_birth}
-      </Typography>
-      <Typography variant="h6" component="p">
-      <CalendarIcon fontSize="small" />
-        {actor.birthday}
-      </Typography>
+var genderOfPerson = ""
+if (actor.gender === 1){
+    genderOfPerson = "Female"
+} 
+else {
+    genderOfPerson = "Male"
+}
+    
 
+
+
+  return (
+
+
+    <>
+    <Typography variant="h5" component="h3">
+        <b>{actor.name}'s Biography</b>
+      </Typography>
+    
       <Typography variant="h6" component="p">
         
         {actor.biography}
       </Typography>
 
       <Paper 
-        component="ul" 
-        sx={root}
-      >
-      </Paper>      
+      component="ul" 
+        sx={root} 
+        >
+      
+      <Chip
+          icon={<PlaceTwoToneIcon fontSize="small" />}
+          label={`Place of Birth: ${actor.place_of_birth}`}
+        />
+      <Chip
+          icon={<CalendarIcon fontSize="small"/>}
+          label={`Date of Birth: ${actor.birthday}`}
+        />
+        <Chip
+          icon={<StarBorderIcon fontSize="small"/>}
+          label={`Popularity: ${actor.popularity}`}
+        />
+        <Chip
+          icon={
+            genderOfPerson === "Female" ? <FemaleIcon/> :
+            genderOfPerson === "Male" ? <MaleIcon/> : null
+                }
+          label={`${genderOfPerson}`}
+        />
+
+        </Paper>
+
+         
       <Fab
         color="secondary"
         variant="extended"
@@ -65,4 +98,6 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
   );
 };
 
-export default ActorDetails ;
+
+export default ActorDetails;
+
