@@ -84,6 +84,8 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       >
         <NavigationIcon />
         Reviews
+        <NavigationIcon />
+        Test
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
