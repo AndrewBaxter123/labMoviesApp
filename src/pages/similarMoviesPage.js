@@ -8,10 +8,9 @@ import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 import { useLocation } from "react-router-dom";
 
 const SimilarMoviesPage = (props) => {
-    const location = useLocation()
-    const { movieId } = location.state;
+    const { id } = useParams(); 
 
-  const {  data, error, isLoading, isError }  = useQuery(['similar', {id: movieId}], getSimilarMovies)
+  const {  data, error, isLoading, isError }  = useQuery(['discover', {id: id}], getSimilarMovies)
 
   if (isLoading) {
     return <Spinner />

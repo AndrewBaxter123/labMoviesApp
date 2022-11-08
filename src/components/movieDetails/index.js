@@ -9,6 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import Button from '@mui/material/Button';
 
 
 const root = {
@@ -23,6 +24,7 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
+
 
   return (
     <>
@@ -71,6 +73,9 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
             <Chip label={c.name} sx={chip} />
           </li>
         ))}
+      <Button variant="contained" href={'/movies/' + movie.id + '/similar'}>
+  Link
+</Button>
       </Paper>
       <Fab
         color="secondary"
@@ -81,11 +86,11 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           bottom: '1em',
           right: '1em'
         }}
+        
       >
         <NavigationIcon />
         Reviews
         <NavigationIcon />
-        Test
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
