@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 const SimilarMoviesPage = (props) => {
     const { id } = useParams(); 
 
-  const {  data, error, isLoading, isError }  = useQuery(['discover', {id: id}], getSimilarMovies)
+  const {  data, error, isLoading, isError }  = useQuery(['similar', {id: id}], getSimilarMovies)
 
   if (isLoading) {
     return <Spinner />
