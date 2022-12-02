@@ -73,10 +73,13 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
             <Chip label={c.name} sx={chip} />
           </li>
         ))}
-      <Button variant="contained" href={'/movies/' + movie.id + '/similar'}>
-  Link
-</Button>
+      
       </Paper>
+      <li>
+      <Button variant="contained" fullWidth="true" href={'/movies/' + movie.id + '/similar'}>
+  Similar Movies
+</Button>
+</li>
       <Fab
         color="secondary"
         variant="extended"
