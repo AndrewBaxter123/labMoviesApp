@@ -19,7 +19,9 @@ import PopularMoviesPage from "./pages/popularMoviesPage";
 import NowPlayingPage from "./pages/nowPlayingPage"
 import PlaylistPage from "./pages/playlistPage"
 import SignUpPage from "./pages/signUpPage"
+import LoginPage from "./pages/loginPage"
 import {AuthProvider} from "./contexts/authContext";
+import PrivateRoute from "./components/privateRoutes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,11 +45,21 @@ const App = () => {
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/upcoming" element={<UpcomingMoviesPage />} />
         <Route exact path="/movies/popular" element={<PopularMoviesPage />} />
-        <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
+        <Route exact path="/movies/favourites" component={<FavouriteMoviesPage />} />
+
+
+        {/* <Route path='/movies/favourites' element={
+              <PrivateRoute>
+                <FavouriteMoviesPage />
+              </PrivateRoute>
+              }
+              /> */}
+
         <Route exact path="/movies/nowPlaying" element={<NowPlayingPage />} />
         <Route exact path="/movies/playlist" element={<PlaylistPage />} />
         <Route exact path="/actors" element={<ActorsPage />} />
         <Route exact path="/signup" element={<SignUpPage />} />
+        <Route exact path="/login" element={<LoginPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/movies/:id/similar" element={<SimilarMoviesPage />} />
         <Route path="/actors/:id" element={<ActorDetailsPage />} />
