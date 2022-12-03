@@ -1,6 +1,6 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
-import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Navigate, Routes, Switch } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
@@ -21,7 +21,7 @@ import PlaylistPage from "./pages/playlistPage"
 import SignUpPage from "./pages/signUpPage"
 import LoginPage from "./pages/loginPage"
 import {AuthProvider} from "./contexts/authContext";
-import PrivateRoute from "./components/privateRoutes";
+//import PrivateRoute from "./components/privateRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,16 +45,7 @@ const App = () => {
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/upcoming" element={<UpcomingMoviesPage />} />
         <Route exact path="/movies/popular" element={<PopularMoviesPage />} />
-        <Route exact path="/movies/favourites" component={<FavouriteMoviesPage />} />
-
-
-        {/* <Route path='/movies/favourites' element={
-              <PrivateRoute>
-                <FavouriteMoviesPage />
-              </PrivateRoute>
-              }
-              /> */}
-
+        <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
         <Route exact path="/movies/nowPlaying" element={<NowPlayingPage />} />
         <Route exact path="/movies/playlist" element={<PlaylistPage />} />
         <Route exact path="/actors" element={<ActorsPage />} />
