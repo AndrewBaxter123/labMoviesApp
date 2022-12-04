@@ -34,21 +34,21 @@ e.g.
 ## Setup requirements.
 
 [ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
-npm install
-npm install firebase
-npm install --save  bootstrap@4.4.1
-npm i bootstrap react-bootstrap
++ npm install
++ npm install firebase
++ npm install --save  bootstrap@4.4.1
++ npm i bootstrap react-bootstrap
 
 a .env file needs to created and your own keys/values added
-REACT_APP_TMDB_KEY=
-FAST_REFRESH=false
-REACT_APP_FIREBASE_API_KEY=
-REACT_APP_FIREBASE_AUTH_DOMAIN=
-REACT_APP_FIREBASE_PROJECT_ID=
-REACT_APP_FIREBASE_STORAGE_BUCKET=
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
-REACT_APP_FIREBASE_APP_ID=
-REACT_APP_FIREBASE_MEASUREMENT_ID=
++ REACT_APP_TMDB_KEY=
++ FAST_REFRESH=false
++ REACT_APP_FIREBASE_API_KEY=
++ REACT_APP_FIREBASE_AUTH_DOMAIN=
++ REACT_APP_FIREBASE_PROJECT_ID=
++ REACT_APP_FIREBASE_STORAGE_BUCKET=
++ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
++ REACT_APP_FIREBASE_APP_ID=
++ REACT_APP_FIREBASE_MEASUREMENT_ID=
 
 
 ## TMDB endpoints.
