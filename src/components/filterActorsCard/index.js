@@ -44,7 +44,7 @@ export default function FilterActorsCard(props) {
     <Card 
       sx={{
         maxWidth: 345,
-        backgroundColor: "rgb(204, 204, 0)"
+        backgroundColor: "rgb(0, 128, 255)"
       }}
       variant="outlined">
       <CardContent>

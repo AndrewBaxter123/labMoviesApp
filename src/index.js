@@ -21,7 +21,9 @@ import PlaylistPage from "./pages/playlistPage"
 import SignUpPage from "./pages/signUpPage"
 import LoginPage from "./pages/loginPage"
 import {AuthProvider} from "./contexts/authContext";
-//import PrivateRoute from "./components/privateRoute";
+import PrivateRoute from "./components/privateRoutes";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { blue, grey } from '@mui/material/colors';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,8 +35,20 @@ const queryClient = new QueryClient({
   },
 });
 
+const theme = createTheme({
+  palette: {
+    primary: blue,
+    secondary: blue,
+     background: {
+      default: grey[100],
+      paper: grey[200]
+    },
+  },
+});
+
 const App = () => {
   return (
+    <ThemeProvider theme={theme}>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
       <AuthProvider>
@@ -62,6 +76,7 @@ const App = () => {
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
+    </ThemeProvider>
   );
 };
 const rootElement = createRoot(document.getElementById("root"));

@@ -27,11 +27,10 @@ export const Basic = () => {
 Basic.storyName = "Default";
 
 export const Exceptional = () => {
-  const sampleNoPoster = { ...SampleActor, poster_path: undefined };
+  const sampleNoPoster = {poster_path: undefined };
   return (
     <ActorCard
       actor={sampleNoPoster}
-      
       taging={(actor) => null}
     />
   );

@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getNowPlaying} from "../api/tmdb-api"
 import PlaylistAddIcon from "../components/cardIcons/addToPlaylist";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 
 const NowPlayingPage = (props) => {
@@ -22,7 +23,12 @@ const NowPlayingPage = (props) => {
         title="Now Playing Movies"
         movies={movies}
         action={(movie) => {
-            return <PlaylistAddIcon movie={movie} />
+          return (
+            <>
+                <AddToFavouritesIcon movie={movie} />
+                <PlaylistAddIcon movie={movie} />
+              </>
+            );
         }}
       />
   );
