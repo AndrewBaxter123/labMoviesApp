@@ -24,7 +24,7 @@ e.g.
  
  e.g.
 
-+ Authentication (using Firebase) but Private Routes not working! Sign up and Log in do work, but can't do anything with them.
++ Authentication (using Firebase) but Private Routes not working! Sign up and Log in do work, but can't do anything different than a non signed in person.
 + Movie Details page has a button that takes you to a new page that shows similar movies to the movie you are viewing
 + new Data Model - Actors
 + Filtering for Actors by name
@@ -34,21 +34,21 @@ e.g.
 ## Setup requirements.
 
 [ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
-npm install
-npm install firebase
-npm install --save  bootstrap@4.4.1
-npm i bootstrap react-bootstrap
++ npm install
++ npm install firebase
++ npm install --save  bootstrap@4.4.1
++ npm i bootstrap react-bootstrap
 
 a .env file needs to created and your own keys/values added
-REACT_APP_TMDB_KEY=
-FAST_REFRESH=false
-REACT_APP_FIREBASE_API_KEY=
-REACT_APP_FIREBASE_AUTH_DOMAIN=
-REACT_APP_FIREBASE_PROJECT_ID=
-REACT_APP_FIREBASE_STORAGE_BUCKET=
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
-REACT_APP_FIREBASE_APP_ID=
-REACT_APP_FIREBASE_MEASUREMENT_ID=
++ REACT_APP_TMDB_KEY=
++ FAST_REFRESH=false
++ REACT_APP_FIREBASE_API_KEY=
++ REACT_APP_FIREBASE_AUTH_DOMAIN=
++ REACT_APP_FIREBASE_PROJECT_ID=
++ REACT_APP_FIREBASE_STORAGE_BUCKET=
++ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
++ REACT_APP_FIREBASE_APP_ID=
++ REACT_APP_FIREBASE_MEASUREMENT_ID=
 
 
 ## TMDB endpoints.
@@ -74,7 +74,7 @@ e.g.
 + actorList
 + actorsCard
 + filterActorsCard
-] .......
+] 
 
 e.g.
 
@@ -138,7 +138,8 @@ e.g.
 
 ## Independent learning (If relevant).
 
-[ https://www.youtube.com/watch?v=PKwu15ldZ7k - Firebase tutorial used for log in and sign up 
+[
++ https://www.youtube.com/watch?v=PKwu15ldZ7k - Firebase tutorial used for log in and sign up 
 
-https://developers.themoviedb.org/3/getting-started/introduction - TMDB
++ https://developers.themoviedb.org/3/getting-started/introduction - TMDB
 ]
