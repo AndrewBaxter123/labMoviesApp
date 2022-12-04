@@ -5,27 +5,27 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 export default function Signup() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const emailRef = useRef() //ref is a react hook that allows you to access the value of an element
+  const passwordRef = useRef() 
   const passwordConfirmRef = useRef()
-  const { signup} = useAuth()
+  const { signup} = useAuth() 
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false) 
+  const navigate = useNavigate(); 
  
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault() 
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) { 
       return setError("Passwords do not match")
     }
 
     try {
       setError("")
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-        setTimeout(navigate("/login"), 3000);
+      await signup(emailRef.current.value, passwordRef.current.value) //await is a javascript keyword that allows you to wait for a promise to resolve before continuing
+        setTimeout(navigate("/login"), 3000); //navigate to login page after 3 seconds
 
     } catch {
       setError("Failed to create an account")

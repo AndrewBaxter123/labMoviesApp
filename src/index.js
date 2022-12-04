@@ -59,7 +59,7 @@ const App = () => {
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/upcoming" element={<UpcomingMoviesPage />} />
         <Route exact path="/movies/popular" element={<PopularMoviesPage />} />
-        <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
+        <Route exact path="/movies/favourites" element={<PrivateRoute><FavouriteMoviesPage /></PrivateRoute>} />
         <Route exact path="/movies/nowPlaying" element={<NowPlayingPage />} />
         <Route exact path="/movies/playlist" element={<PlaylistPage />} />
         <Route exact path="/actors" element={<ActorsPage />} />
