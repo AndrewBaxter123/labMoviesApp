@@ -10,10 +10,13 @@ Name: [your name]
 
 e.g.
 
-+ List of Trending movies.
-+ (Modified) Movie Details page - added chips for .....
-+ List of Actors.
-+ etc
++ Sign up and Login Page
++ Now Playing Movies Page
++ Popular Movies Page
++ List of Actors Page
++ Actor Details Page
++ Playlist Page
++ Similar Movies Page - button on Movie details page
 
 ### New Features.
 
@@ -21,14 +24,32 @@ e.g.
  
  e.g.
 
-+ Authentication (using Firebase)
-+ Create a fantasy movie (Basic)
-+ Sort movie list by release date (e.g. the Discover Movies page)
-+ etc
++ Authentication (using Firebase) but Private Routes not working! Sign up and Log in do work, but can't do anything with them.
++ Movie Details page has a button that takes you to a new page that shows similar movies to the movie you are viewing
++ new Data Model - Actors
++ Filtering for Actors by name
++ Storybook support for Actor components
++ homepage movie list sorted by revenue to differentiate from another page
 
 ## Setup requirements.
 
 [ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+npm install
+npm install firebase
+npm install --save  bootstrap@4.4.1
+npm i bootstrap react-bootstrap
+
+a .env file needs to created and your own keys/values added
+REACT_APP_TMDB_KEY=
+FAST_REFRESH=false
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_PROJECT_ID=
+REACT_APP_FIREBASE_STORAGE_BUCKET=
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
+REACT_APP_FIREBASE_APP_ID=
+REACT_APP_FIREBASE_MEASUREMENT_ID=
+
 
 ## TMDB endpoints.
 
@@ -36,32 +57,64 @@ e.g.
 
 e.g.
 
-+ /movies/{movie_id}/reviews - The user reviews or a movie.
-+ /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/popular - A list of popular actors.
-+ /tv/{tv_id}/videos - The videos for a TV show. 
++ /movie/popular - Popular Movies.
++ /movie/${id}/similar - A list of similar movies. 
++ /movie/now_playing - Now Playing Movies.
++ person/${id}/images - Actor Images.
++ person/popular -  get Popular Actors.
++ person/${id} - getting an individual Actor.
 
 ## App Design.
 
 ### Component catalogue.
 
-[ Insert a screenshot from the Storybook UI, and highlight the stories that relate to your __new/modified components__ - see the example screenshot below.] .......
+[ Below is my storybook page, I have added actor storie
++ actorDetails
++ actorHeader
++ actorList
++ actorsCard
++ filterActorsCard
+] .......
 
 e.g.
 
-![](./images/stories.png)
+![](./images/storybook.png)
 
 ### UI Design.
 
 [ Insert screenshots of the __new app pages__ you developed (including modified existing pages), Have an appropriate caption for each one (see example below).
 
-![ ](./images/detail.png)
+![ ](./images/signup.png)
 
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+>sign up page for users to sign up. using Firebase Auth.
 
-![ ](./images/review.png)
+![ ](./images/login.png)
 
->Shows the full review for a movie.
+>log in page for users after sign up. using Firebase Auth.
+
+![ ](./images/nowplaying.png)
+
+>list of movies that are recently released and now playing, all movies able to be faved or added to a playlist, on this page as well as all other movie pages.
+
+![ ](./images/popularmovies.png)
+
+>a collection of movies that are considered popular right now.
+
+![ ](./images/similarmovies.png)
+
+>after clicking more info on a movie, the similar movies button will take you to a new page that displays similar movies to the current movie you are viewing
+
+![ ](./images/actorslist.png)
+
+>list of popular actors right now, more info will take you into actor details
+
+![ ](./images/actorpage.png)
+
+>actor details page, you get here by clicking more info on the actors list page
+
+![ ](./images/playlist.png)
+
+>the result of adding movies to your playlist
 
 ### Routing.
 
@@ -69,13 +122,23 @@ e.g.
 
 e.g. 
 
-+ /actors - displays a list of popular actors.
-+ /actors/:id - shows details about a particular actor.
-+ /actors/:id/movies (protected) - an actor's movie credits.
-+ etc.
++ "movies/popular" - gets the popular movies
++ "movies/nowPlaying" - movies that are currently playing
++ "movies/playlist" - playlist of movies that you want to watch
++ "movies/id/similar" - movies similar to a certain selected movie
++ "movies/favourites" - list of favourite movies
++ "movies/id" - details about a movie
++ "/actors" - actors list
++ "/actors/id" - details about an actor
++ "signup" - signup page
++ "login" - login page
++ "movies/id"
 
-[If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
+[Tried to make Favourites a private route to no success]
 
 ## Independent learning (If relevant).
 
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Mention the source code filenames that illustrate these  (code excerpts are not required) and provide references to the online resources that helped you (articles/blogs).
+[ https://www.youtube.com/watch?v=PKwu15ldZ7k - Firebase tutorial used for log in and sign up 
+
+https://developers.themoviedb.org/3/getting-started/introduction - TMDB
+]
