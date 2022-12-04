@@ -24,7 +24,7 @@ e.g.
  
  e.g.
 
-+ Authentication (using Firebase) but Private Routes not working! Sign up and Log in do work, but can't do anything with them.
++ Authentication (using Firebase) but Private Routes not working! Sign up and Log in do work, but can't do anything different than a non signed in person.
 + Movie Details page has a button that takes you to a new page that shows similar movies to the movie you are viewing
 + new Data Model - Actors
 + Filtering for Actors by name
