@@ -1,8 +1,10 @@
 # Web App Dev 2 - Assignment 1 - ReactJS app.
 
-Name: [your name]
+Name: [Andrew Baxter]
 
 ## Overview.
+
+Using ReactJS, I added to and modified our lab created Movies App.
 
 ### New Pages.
 
